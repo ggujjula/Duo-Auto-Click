@@ -1,0 +1,16 @@
+{
+
+  "manifest_version": 2,
+  "name": "Duo Auto-Push",
+  "version": "0.1",
+
+  "description": "A small extension that clicks the requested option on a Duo authentication page automatically to save some time when logging in.",
+
+  "content_scripts": [
+    {
+      "matches": ["*://*.login.utexas.edu/*"],
+      "js": ["dac.js"]
+    }
+  ]
+
+}
