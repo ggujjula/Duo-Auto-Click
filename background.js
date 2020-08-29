@@ -1,5 +1,15 @@
 function tabUpdateCallback(tabId, changeInfo, tab){
+/*
+  console.log("Updated tab: " + tabId);
+  console.log("Changed attributes: ");
+  console.log(changeInfo);
+  console.log("New tab Info: ");
+  console.log(tabInfo);
+*/
   try{
+    if(changeInfo.status != "complete"){
+      return;
+    }
     console.log("Injecting clicker script");
 
     let clickerPromise = null;
@@ -16,6 +26,7 @@ function tabUpdateCallback(tabId, changeInfo, tab){
   catch(err){
     console.log(err)
   }
+
 }
 
 console.log("Duo Auto-Click started");
