@@ -18,9 +18,14 @@ function attemptClick(){
       return;
     }
     console.log("Domain matches");
-    mutObs = new MutationObserver(mutationHandler);
-    mutObs.observe(document, {subtree: true, childList: true});
-    console.log("Observing");
+    console.log(document.readyState);
+    let buttons = document.getElementsByClassName("auth-button");
+    console.log(buttons);
+    buttons[1].click();
+    
+    //mutObs = new MutationObserver(mutationHandler);
+    //mutObs.observe(document, {subtree: true, childList: true});
+    //console.log("Observing");
   }
   catch(err){
     console.log(err);
@@ -29,3 +34,17 @@ function attemptClick(){
 
 console.log("Clicker injected");
 attemptClick();
+
+/*
+function delay(time){
+  return new Promise((resolve, reject) => {
+    setTimeout(resolve, time);
+  });
+}
+
+console.log("Clicker injected");
+delay(5000)
+  .then((retval) => console.log("Delayed print"))
+  .catch((err) => console.error(err));
+console.log("Finished async part");
+*/
